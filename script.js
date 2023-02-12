@@ -6,8 +6,12 @@ function makeRows(rows, cols) {
     for (c = 0; c < (rows * cols); c++) {
         let cell = document.createElement('div');
         cell.innerText = (c + 1);
+        cell.addEventListener('mouseover', 
+            e => e.target.classList.add('my-color-class')
+        )
         container.appendChild(cell).className = 'grid-item';
     };
 };
 
 makeRows(16, 16);
+
