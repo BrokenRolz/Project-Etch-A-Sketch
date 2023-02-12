@@ -1,6 +1,7 @@
 const container = document.getElementById('container');
+const resetButton = document.querySelector('button');
 
-function makeRows(rows, cols) {
+function makeGrid(rows, cols) {
     container.style.setProperty('--grid-rows', rows);
     container.style.setProperty('--grid-cols', cols);
     for (c = 0; c < (rows * cols); c++) {
@@ -13,5 +14,12 @@ function makeRows(rows, cols) {
     };
 };
 
-makeRows(16, 16);
+resetButton.addEventListener('click', () =>{
+    let userAns = Number(prompt("Enter a number between 1-100 to create a a new grid."));
 
+    if(userAns > 100) {
+        userAns = Number(prompt("Enter a smaller number. Make it 100 or less."))
+    }
+    makeGrid(userAns, userAns);
+})
+makeGrid(16, 16);
